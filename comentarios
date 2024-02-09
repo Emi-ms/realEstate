@@ -1,0 +1,2 @@
+npm i -g json-server  para installar el servidor de json
+json-server --watch db.json para iniciar el servicio haciendo referencia al archivo json que tenemos de manera local, pero simulamos que esta en la red

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { RouterLink } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 @Component({
@@ -8,17 +10,18 @@ import { HomeComponent } from './components/home/home.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    HomeComponent,],
+    HomeComponent,
+    RouterLink,
+  NavBarComponent],
   template: `
     <main>
-      <header class="brand-name">
-        <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
-      </header>
+    <app-nav-bar/>
       <section class="content">
-        <app-home></app-home>
+        <!-- <app-home></app-home> -->
+        <router-outlet />
       </section>
 
-    <router-outlet />
+    
     </main>
   `,
   styles: [],

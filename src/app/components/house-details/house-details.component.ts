@@ -10,18 +10,18 @@ import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
   imports: [ReactiveFormsModule],
   template: `
   <article id="detail-card">
-    <img class="listing-photo-detail" [src]="housingLocation?.photo" alt="Exterior photo of {{housingLocation?.name}}">
+    <img class="listing-photo-detail" [src]="housingLocation.photo" alt="Exterior photo of {{housingLocation.name}}">
     <section class="listing-description">
-      <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
-      <p class="listing-location">{{ housingLocation?.city}}, {{housingLocation?.state }}</p>
+      <h2 class="listing-heading">{{ housingLocation.name }}</h2>
+      <p class="listing-location">{{ housingLocation.city}}, {{housingLocation.state }}</p>
       
     </section>
     <section class="listing-features">
       <h2 class="section-heading">About this housing location</h2>
       <ul>
-        <li>Available units: {{ housingLocation?.availableUnits }}</li>
-        <li>Wifi available: {{ housingLocation?.wifi ? 'Yes' : 'No' }}</li>
-        <li >Laundry facilities available: {{housingLocation?.laundry?'Yes':'No'}}</li>
+        <li>Available units: {{ housingLocation.availableUnits }}</li>
+        <li>Wifi available: {{ housingLocation.wifi ? 'Yes' : 'No' }}</li>
+        <li >Laundry facilities available: {{housingLocation.laundry?'Yes':'No'}}</li>
       </ul>
       <section class="listing-apply">
       <h2 class="section-heading">Apply now to live here</h2>

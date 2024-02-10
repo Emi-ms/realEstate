@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HousingLocation } from '../../models/housing-location';
 import { HousingService } from '../../services/housing-service';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-house-details',
@@ -61,7 +61,7 @@ export class HouseDetailsComponent {
     this.housingLocationId = Number(this.route.snapshot.params['id']);
 
     this.housingService.getHousingLocationById(this.housingLocationId).then((housingLocation: HousingLocation) => {
-      this.housingLocation = housingLocation;
+    this.housingLocation = housingLocation;
     });
 
   }

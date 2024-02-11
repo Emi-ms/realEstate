@@ -42,7 +42,7 @@ export class MapComponent implements OnInit {
       this.longitude = this.house?.coordinate.longitude;
 
 
-    }, 2000);
+    }, 1000);
 
   }
 
@@ -58,7 +58,7 @@ export class MapComponent implements OnInit {
 
         marker([this.latitude, this.longitude]).addTo(this.map).bindPopup(`<h5>This is the geolocation of <br><b> ${this.house?.name}</b></h5>`).openPopup();
       }
-    }, 2000);
+    }, 1000);
     
   }
 

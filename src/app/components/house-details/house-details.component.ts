@@ -3,11 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { HousingLocation } from '../../models/housing-location';
 import { HousingService } from '../../services/housing-service';
 import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { MapComponent } from '../map/map.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-house-details',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,
+    MapComponent,
+    RouterLink],
   template: `
   <article id="detail-card">
     <img class="listing-photo-detail" [src]="housingLocation.photo" alt="Exterior photo of {{housingLocation.name}}">
@@ -38,6 +42,9 @@ import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
       </form>
     </section>
     </section>
+   
+    
+    <button class="primary" routerLink="/map/{{housingLocation.id}}">See geolocation</button>
 
 
   </article>

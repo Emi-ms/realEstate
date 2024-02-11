@@ -1,2 +1,4 @@
 npm i -g json-server  para installar el servidor de json
 json-server --watch db.json para iniciar el servicio haciendo referencia al archivo json que tenemos de manera local, pero simulamos que esta en la red
+npm install leaflet@1.9.4 para instalar leaflet
+ npm install @types/leaflet@1.9.8 -D

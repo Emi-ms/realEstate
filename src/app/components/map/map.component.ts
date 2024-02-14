@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
     <h1 class="titulo">Map of the house</h1>
   <div class="mt-3">
     <button class="btn btn-secondary" (click)="reloadLocation()">Reload Map</button>
+    <button class="btn btn-secondary" (click)="getLocation()">See your location</button>
   </div>
   <hr>
   <div id="map"></div>
@@ -27,6 +28,7 @@ export class MapComponent implements OnInit {
   route?: ActivatedRoute = inject(ActivatedRoute);
   latitude?: number;
   longitude?: number;
+  userLocation:any;
 
   constructor(private housingService: HousingService) { }
 
@@ -36,13 +38,13 @@ export class MapComponent implements OnInit {
       console.log(this.house);
     });
 
-  setTimeout(() => {
+    setTimeout(() => {
 
       this.latitude = this.house?.coordinate.latitude;
       this.longitude = this.house?.coordinate.longitude;
 
 
-    }, 1000);
+    }, 2000);
 
   }
 
@@ -50,23 +52,53 @@ export class MapComponent implements OnInit {
     setTimeout(() => {
       console.log(this.latitude);
       console.log(this.longitude);
+
       if (this.latitude !== undefined && this.longitude !== undefined) {
-        this.map = new Map('map').setView([this.latitude, this.longitude], 13);
+
+        this.map = new Map('map').setView([this.latitude, this.longitude], 15);
+        
         const tiles = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
         }).addTo(this.map);
 
         marker([this.latitude, this.longitude]).addTo(this.map).bindPopup(`<h5>This is the geolocation of <br><b> ${this.house?.name}</b></h5>`).openPopup();
+
       }
-    }, 1000);
-    
+    }, 2000);
+
   }
 
-  getLocation() {
+  async getLocation() {
 
+    if (navigator.geolocation) {
+
+      this.userLocation = await this.getCoordenate();
+
+      if (this.userLocation !== undefined) {
+        this.map.remove();
+        this.map = new Map('map').setView(this.userLocation, 15);
+        const tiles = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+        }).addTo(this.map);
+
+        marker(this.userLocation).addTo(this.map).bindPopup(`<h5>This is your location</h5>`).openPopup();
+
+      }
+    }
+   
   }
 
   reloadLocation() {
     location.reload();
+  }
+
+  getCoordenate() {
+    return new Promise((res, reject) => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        res([position.coords.latitude, position.coords.longitude])
+      })
+    })
+
+
   }
 }

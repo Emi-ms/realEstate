@@ -111,6 +111,11 @@ button.primary {
     border-radius: 30px;
     padding-bottom: 30px;
   }
+
+  #see-more{
+    margin-left: 20px;
+  }
+
   .listing-heading {
     color: var(--primary-color);
     padding: 10px 20px 0 20px;

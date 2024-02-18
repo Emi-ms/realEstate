@@ -17,7 +17,7 @@ import { RouterOutlet } from '@angular/router';
       <img class="listing-photo" [src]="housingLocationChild.photo" alt="Exterior photo of {{housingLocationChild.name}}">
       <h2 class="listing-heading">{{ housingLocationChild.name }}</h2>
       <p class="listing-location">{{ housingLocationChild.city}}, {{housingLocationChild.state }}</p>
-      <a [routerLink]="['/details',housingLocationChild.id]">See more</a>
+      <a id="see-more" [routerLink]="['/details',housingLocationChild.id]">See more</a>
     </section>
       
   `,

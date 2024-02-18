@@ -58,7 +58,7 @@ export class HouseDetailsComponent {
   router: Router = inject(Router);
   housingService: HousingService = inject(HousingService);
   housingLocationId: number = -1;
-  housingLocation!: HousingLocation;
+  housingLocation: HousingLocation | null | undefined;
 
   applyForm = new FormGroup({
     firstName: new FormControl('', Validators.required),

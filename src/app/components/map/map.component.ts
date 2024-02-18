@@ -69,8 +69,6 @@ export class MapComponent implements OnInit {
 
       }
     }, 2000);
-    
-
   }
 
   async getLocation() {

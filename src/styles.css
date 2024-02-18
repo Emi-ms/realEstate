@@ -61,7 +61,7 @@ button.primary {
   }
   
   input[type="text"] {
-    border: solid 1px rgb(13, 179, 123);
+    border: solid 1px ;
     padding: 10px;
     border-radius: 8px;
     margin-right: 4px;
@@ -69,6 +69,11 @@ button.primary {
     width: 30%;
   }
   
+  .invalid-input {
+    border-color: red;
+    background-color: red;
+  }
+
   button {
     padding: 10px;
     border: solid 1px rgb(13, 179, 123);

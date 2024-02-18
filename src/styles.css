@@ -83,6 +83,10 @@ button.primary {
     margin-left: 5px;
     margin-right: 5px;
   }
+
+  #filter-form{
+    margin-left: 20px;
+  }
   
   @media (min-width: 500px) and (max-width: 768px) {
     .results {

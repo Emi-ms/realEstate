@@ -10,7 +10,7 @@ import { HousingService } from '../../services/housing-service';
   imports: [HousingLocationComponent, CommonModule],
   template: `
     <section>
-      <form>
+      <form id="filter-form">
         <input type="text" placeholder="Filter by city" #filter>
         <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
       </form>

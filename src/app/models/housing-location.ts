@@ -12,5 +12,6 @@ export interface HousingLocation {
         latitude: number;
         longitude: number;
     }
+    score: number;
 }
 

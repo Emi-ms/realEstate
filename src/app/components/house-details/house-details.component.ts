@@ -32,6 +32,13 @@ import { Router } from '@angular/router';
         </ul>
         <section class="listing-apply">
         <h2 class="section-heading">Apply now to live here</h2>
+        @if(housingLocation && housingLocation.score < 5){
+        <p class="listing-rating">Rating: 😫</p>
+      }@else if (housingLocation && housingLocation.score >= 5 && housingLocation.score <=9 ) {
+        <p class="listing-rating">Rating: 😎</p>
+      }@else{
+        <p class="listing-rating">Rating: 🤩</p>
+      }
         <form [formGroup]="applyForm" (submit)="submitApplication()">
           <label for="first-name">First Name</label>
           <input id="first-name" type="text" formControlName="firstName" [ngClass]="{'invalid-input': applyForm.controls.firstName.invalid && applyForm.controls.firstName.touched}">
@@ -42,6 +49,10 @@ import { Router } from '@angular/router';
           <label for="email">Email</label>
           <input id="email" type="text" formControlName="email" [ngClass]="{'invalid-input': applyForm.controls.email.invalid && applyForm.controls.email.touched}">
    
+          <label for="score">Rate</label>
+          <input id="score" type="number" formControlName="score" >
+
+
           <button type="submit" class="primary">Apply now</button>
           <button type="reset" class="secondary" (click)="forgetData()">Forget data</button>
         </form>
@@ -64,6 +75,7 @@ export class HouseDetailsComponent {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.email),
+    score: new FormControl('', Validators.required)
   })
 
   constructor() {
